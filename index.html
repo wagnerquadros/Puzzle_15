@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Puzzle 15 Game</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="puzzle-container" id="puzzle-container"></div>
+        <button class="shuffle-btn" id="shuffle-btn">Shufle Tiles</button>
+        <div class="message" id="message">Congratulations! You solved the puzzle!</div>
+    </div>
+
+    <script>
+        let TileSize = 100;
+        let tileArray = Array.from({length:15}, (_,i) => i+1); //Cria um Array com 15 elementos (length:15). O segundo argumento define os valores do array.
+        let emptyIndex = 15;
+
+        function renderTiles(){
+            let container = document.getElementById('puzzle-container');
+            container.innerHTML = '';
+            tileArray.forEach((value,index) => {
+                let tile = document.createElement('div');
+                tile.className =  value === 0 ? 'tile empty' : 'tile';
+                tile.textContent = value || '';
+
+                let row = Math.floor(index /4);
+                let col = index % 4;
+                tile.style.top = `${row * TileSize}px`;
+                tile.style.left = `${col * TileSize}px`;
+
+                container.appendChild(tile);
+            })
+        }
+        renderTiles();
+    </script>
+</body>
+</html>
