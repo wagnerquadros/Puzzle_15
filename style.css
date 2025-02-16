@@ -32,6 +32,30 @@ body {
     box-shadow: 0 0 0 20px #7ba383;
 }
 
+.puzzle-container .tile {
+    position: absolute;
+    width: 90px;
+    height: 90px;
+    background: #ffffa5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+    color: #333;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: 0.5s;
+}
+
+.puzzle-container .tile:hover {
+    background: #fff;
+}
+
+.tile.empty, 
+.tile.empty:hover {
+    background: rgba(0,0,0,0.1);
+}
+
 .shuffle-btn{
     position: relative;
     top: 50px;
